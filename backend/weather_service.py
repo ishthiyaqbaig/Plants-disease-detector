@@ -2,14 +2,14 @@ import requests
 import random
 from datetime import datetime, timedelta
 
-API_KEY = "YOUR_OPENWEATHER_API_KEY"
+API_KEY = "f7d346d8975fc8c45585dec686e843b9"
 
 def get_weather(city="Hyderabad"):
     """
     Fetches current weather. Falls back to realistic mock agricultural data 
     if the API key is not configured, invalid, or offline.
     """
-    if not API_KEY or API_KEY == "YOUR_OPENWEATHER_API_KEY":
+    if not API_KEY or API_KEY == "f7d346d8975fc8c45585dec686e843b9":
         return get_mock_weather(city)
         
     try:
