@@ -1,0 +1,51 @@
+[
+    {
+        "disease": "Potato___Early_blight",
+        "confidence": 53.22,
+        "risk": "Medium",
+        "severity": "Low",
+        "date": "2026-06-10 20:34:34"
+    },
+    {
+        "disease": "Tomato___Early_blight",
+        "confidence": 96.52,
+        "risk": "Medium",
+        "severity": "Severe",
+        "date": "2026-06-10 20:38:45"
+    },
+    {
+        "disease": "Potato___Early_blight",
+        "confidence": 84.86,
+        "risk": "Medium",
+        "severity": "Moderate",
+        "date": "2026-06-10 20:41:57"
+    },
+    {
+        "disease": "Tomato___Early_blight",
+        "confidence": 96.52,
+        "risk": "Medium",
+        "severity": "Severe",
+        "date": "2026-06-10 20:47:41"
+    },
+    {
+        "disease": "Potato___Early_blight",
+        "confidence": 53.22,
+        "risk": "Medium",
+        "severity": "Low",
+        "date": "2026-06-10 20:48:26"
+    },
+    {
+        "disease": "Potato___Early_blight",
+        "confidence": 84.86,
+        "risk": "Medium",
+        "severity": "Moderate",
+        "date": "2026-06-10 21:00:55"
+    },
+    {
+        "disease": "Potato___Early_blight",
+        "confidence": 53.22,
+        "risk": "Medium",
+        "severity": "Low",
+        "date": "2026-06-10 21:23:34"
+    }
+]

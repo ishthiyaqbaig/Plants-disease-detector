@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Theme Color Palette - Enterprise Agriculture Dashboard */
+  --bg-dark: #0B1120;
+  --card-bg: #111827;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-glow: rgba(34, 197, 94, 0.25);
+  
+  --primary: #22C55E;       /* Primary Green */
+  --blue: #3B82F6;          /* Blue */
+  --purple: #A855F7;        /* Purple */
+  --yellow: #FACC15;        /* Yellow */
+  
+  --text-primary: #F3F4F6;  /* slate-100 */
+  --text-secondary: #9CA3AF;/* slate-400 */
+  --text-muted: #6B7280;    /* slate-500 */
+
+  font-family: var(--font-sans);
+  color-scheme: dark;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.light {
+  --bg-dark: #F1F5F9;       /* Light Slate */
+  --card-bg: #FFFFFF;       /* White cards */
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-border-glow: rgba(34, 197, 94, 0.4);
+  
+  --text-primary: #0F172A;  /* slate-900 */
+  --text-secondary: #475569;/* slate-600 */
+  --text-muted: #94A3B8;    /* slate-400 */
+  
+  color-scheme: light;
+}
+
+/* Light Mode Typography Reset Overrides to prevent text from disappearing */
+html.light h1:not(aside *),
+html.light h2:not(aside *),
+html.light h3:not(aside *),
+html.light h4:not(aside *),
+html.light h5:not(aside *),
+html.light h6:not(aside *),
+html.light p:not(aside *),
+html.light label:not(aside *),
+html.light td:not(aside *),
+html.light th:not(aside *),
+html.light input:not(aside *),
+html.light textarea:not(aside *),
+html.light select:not(aside *),
+html.light .text-white:not(aside *),
+html.light .text-slate-50:not(aside *),
+html.light .text-slate-100:not(aside *),
+html.light .text-slate-200:not(aside *),
+html.light .text-slate-300:not(aside *),
+html.light .text-gray-100:not(aside *),
+html.light .text-gray-200:not(aside *),
+html.light .text-gray-300:not(aside *),
+html.light .text-zinc-100:not(aside *),
+html.light .text-zinc-200:not(aside *),
+html.light .text-zinc-300:not(aside *),
+html.light .text-neutral-100:not(aside *),
+html.light .text-neutral-200:not(aside *),
+html.light .text-neutral-300:not(aside *),
+html.light div.text-slate-300:not(aside *),
+html.light div.text-slate-200:not(aside *),
+html.light span:not(aside *):not(.text-slate-950):not(button *):not(.bg-emerald-500) {
+  color: var(--text-primary) !important;
+}
+
+html.light .text-slate-400:not(aside *),
+html.light .text-slate-500:not(aside *),
+html.light p.text-slate-400:not(aside *),
+html.light p.text-slate-500:not(aside *),
+html.light span.text-slate-400:not(aside *),
+html.light span.text-slate-500:not(aside *) {
+  color: var(--text-secondary) !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-dark);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Premium Dashboard UI Utilities */
+.dashboard-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card-hover:hover {
+  border-color: var(--card-border-glow);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.glow-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: all 0.5s ease;
+}
+.glow-btn:hover::after {
+  left: 100%;
+}
+
+/* Scanning Sweep effect for image pathology visualization */
+@keyframes sweep {
+  0% { top: 0%; opacity: 0.7; }
+  50% { top: 100%; opacity: 0.7; }
+  100% { top: 0%; opacity: 0.7; }
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--primary), transparent);
+  box-shadow: 0 0 6px var(--primary);
+  animation: sweep 2.5s linear infinite;
+  pointer-events: none;
+}
