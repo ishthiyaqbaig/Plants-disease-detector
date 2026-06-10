@@ -5,3 +5,4 @@ ultralytics
 opencv-python
 numpy
 pillow
+google-generativeai
