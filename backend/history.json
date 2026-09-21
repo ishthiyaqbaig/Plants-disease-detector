@@ -47,5 +47,26 @@
         "risk": "Medium",
         "severity": "Low",
         "date": "2026-06-10 21:23:34"
+    },
+    {
+        "disease": "Tomato___Late_blight",
+        "confidence": 93.8,
+        "risk": "Medium",
+        "severity": "Severe",
+        "date": "2026-09-21 23:06:59"
+    },
+    {
+        "disease": "Grape___Black_rot",
+        "confidence": 54.78,
+        "risk": "Medium",
+        "severity": "Low",
+        "date": "2026-09-21 23:09:30"
+    },
+    {
+        "disease": "Grape___Black_rot",
+        "confidence": 54.78,
+        "risk": "Medium",
+        "severity": "Low",
+        "date": "2026-09-21 23:29:38"
     }
 ]

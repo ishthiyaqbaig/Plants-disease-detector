@@ -146,14 +146,14 @@ export default function UploadCard({ file, setFile, loading }) {
           <div className="flex justify-between items-center w-full border-b border-[var(--card-border)] pb-3">
             <span className="flex items-center gap-2 text-[10px] font-bold text-[#22C55E] uppercase tracking-wider">
               <Camera size={14} className="animate-pulse" />
-              Live Camera Viewfinder
+              {t.detLiveViewfinder || "Live Camera Viewfinder"}
             </span>
             
             <button
               onClick={stopCamera}
               className="p-1.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500 hover:text-white transition text-[10px] font-bold uppercase"
             >
-              Cancel
+              {t.detCancel || "Cancel"}
             </button>
           </div>
 
@@ -167,7 +167,7 @@ export default function UploadCard({ file, setFile, loading }) {
             {/* Guide rectangle for leaf closeup alignment */}
             <div className="absolute inset-[15%] border border-dashed border-[#22C55E]/40 rounded-2xl pointer-events-none flex items-center justify-center">
               <span className="text-[10px] font-bold text-[#22C55E]/50 uppercase tracking-widest bg-slate-950/60 px-2.5 py-1 rounded-lg">
-                Align Leaf Here
+                {t.detAlignLeaf || "Align Leaf Here"}
               </span>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function UploadCard({ file, setFile, loading }) {
             className="px-6 py-2.5 rounded-2xl bg-[#22C55E] hover:bg-[#22C55E]/90 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-[0_0_15px_rgba(34,197,94,0.3)]"
           >
             <Camera size={14} />
-            Take Snapshot
+            {t.detTakeSnapshot || "Take Snapshot"}
           </button>
         </div>
       ) : !previewUrl ? (
@@ -225,7 +225,7 @@ export default function UploadCard({ file, setFile, loading }) {
                 {t.detDragDrop}
               </h3>
               <p className="text-[10px] text-slate-500 font-bold uppercase">
-                {t.detSupported} or click camera to capture
+                {t.detSupported} • {t.detOrCamera || "or use camera to capture"}
               </p>
             </div>
           </div>
@@ -252,7 +252,7 @@ export default function UploadCard({ file, setFile, loading }) {
                 className="p-1.5 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/20 text-[#3B82F6] hover:bg-[#3B82F6] hover:text-white transition text-[10px] flex items-center gap-1 font-bold uppercase"
               >
                 <Camera size={12} />
-                Retake
+                {t.detRetake || "Retake"}
               </button>
               
               <button
@@ -260,7 +260,7 @@ export default function UploadCard({ file, setFile, loading }) {
                 className="p-1.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500 hover:text-white transition text-[10px] flex items-center gap-1 font-bold uppercase"
               >
                 <Trash2 size={12} />
-                Remove
+                {t.detRemove || "Remove"}
               </button>
             </div>
           </div>

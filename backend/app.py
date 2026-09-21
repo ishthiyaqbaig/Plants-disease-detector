@@ -135,10 +135,14 @@ async def chat(request: ChatRequest):
     return {"response": answer}
 
 @app.get("/weather")
-def get_weather_data(city: str = "Hyderabad"):
+def get_weather_data(
+    city: str = Query(None),
+    lat: float = Query(None),
+    lon: float = Query(None)
+):
     try:
-        current = get_weather(city)
-        forecast = get_weather_forecast(city)
+        current = get_weather(city=city, lat=lat, lon=lon)
+        forecast = get_weather_forecast(city=city, lat=lat, lon=lon)
         irrigation = get_irrigation_recommendation(current["temperature"], current["humidity"])
         stress_alerts = get_crop_stress_index(current["temperature"], current["humidity"])
         
@@ -192,9 +196,9 @@ async def download_report(data: ReportData):
 async def history():
     return get_history()
 
-def get_mock_or_real_weather():
+def get_mock_or_real_weather(lat=None, lon=None, city=None):
     """ Helper to get weather without crashing if API offline """
     try:
-        return get_weather("Hyderabad")
+        return get_weather(city=city, lat=lat, lon=lon)
     except Exception:
-        return {"temperature": 30.0, "humidity": 70.0}
+        return {"temperature": 28.0, "humidity": 65.0, "city": "Live Farm"}

@@ -3,13 +3,20 @@ export const translations = {
     title: "Ish AI Doctor",
     subtitle: "AI-Powered Crop Health Intelligence",
     tagline: "Diagnose plant diseases instantly, get treatment recommendations, and converse with an intelligent agriculture assistant.",
+    platformSub: "Ish AI Doctor Platform • v2.0",
     btnAnalyze: "Analyze Plant",
     btnAskAI: "Ask AI Assistant",
+
+    // Navigation
     navHome: "Home",
-    navDetection: "Detection",
+    navDashboard: "Dashboard",
+    navDetection: "Disease Detection",
     navChat: "AI Assistant",
+    navWeather: "Weather Advisory",
     navAnalytics: "Analytics Dashboard",
-    
+    navReports: "Reports & Logs",
+    navSettings: "System Settings",
+
     // Feature Cards
     featDetectTitle: "Disease Detection",
     featDetectDesc: "Upload leaf photos for instant computer vision disease detection.",
@@ -19,21 +26,51 @@ export const translations = {
     featWeatherDesc: "Track forecasts, irrigation requirements, and fungal stress levels.",
     featAnalyticsTitle: "Smart Analytics",
     featAnalyticsDesc: "Track localized disease spread trends and crop health history.",
-    
+
     // Stats Section
     statAnalyses: "Analyses Done",
     statAccuracy: "Model Accuracy",
     statResponse: "AI Response Time",
     statActiveFarmers: "Active Farmers",
-    
+
     // Testimonials
     testTitle: "Trusted by Farmers Across Regions",
     testSub: "See how Ish AI Doctor is helping protect yields and optimize farming.",
-    
+
+    // Dashboard Page
+    dashSmartAgro: "Smart Agro SaaS Platform",
+    dashWelcome: "Welcome to",
+    dashHeroDesc: "Real-time crop pathology diagnostics powered by YOLOv8 deep vision weights and context-aware Gemini agronomy models.",
+    dashTotalScans: "Total Scans",
+    dashSuccessfulDetections: "Successful Detections",
+    dashAvgConf: "Avg Model Confidence",
+    dashLastAnalyzed: "Last Analyzed Disease",
+    dashAllTime: "All-time",
+    dashConfOver50: "Confidence >50%",
+    dashAcrossPred: "Across predictions",
+    dashRealTime: "Real-time",
+    dashNoScans: "No Scans Yet",
+    dashQuickActions: "Core Agricultural Capabilities",
+    dashQuickActionsSub: "Access essential disease diagnostic, meteorological, and consultative tools.",
+    dashCapDetectTitle: "Disease Detection",
+    dashCapDetectDesc: "Upload leaf photographs to execute computer vision diagnostic scanning.",
+    dashCapAiTitle: "AI Recommendations",
+    dashCapAiDesc: "Ask the context-aware chatbot for organic treatments, prevention guidelines, and spray advice.",
+    dashCapWeatherTitle: "Weather Intelligence",
+    dashCapWeatherDesc: "Assess temperature thresholds, rainfall indicators, and fungal risk alarms.",
+    dashCapRealtimeTitle: "Real-Time Analysis",
+    dashCapRealtimeDesc: "Inspect close-up leaf pathology symptoms side-by-side with diagnostic insights.",
+    dashCapPdfTitle: "PDF Reporting",
+    dashCapPdfDesc: "Export structured summaries including severity, weather risk, and agro-advisories.",
+    dashCapHistoryTitle: "Prediction History",
+    dashCapHistoryDesc: "Review previous pathology diagnoses and treatment advice to track disease occurrences.",
+
     // Detection Page
     detTitle: "Plant Disease Diagnostics",
+    detSub: "Execute YOLOv8 computer vision classification weights against plant leaves to identify disease occurrences.",
     detDragDrop: "Drag and drop or click to upload leaf image",
     detSupported: "Supports JPG, JPEG, PNG, WEBP (Max 5MB)",
+    detOrCamera: "or use camera to capture live foliage",
     detAnalyzeBtn: "Analyze Plant Leaf",
     detAnalyzing: "Running YOLOv8 Diagnosis...",
     detResultsTitle: "Diagnostic Report",
@@ -43,15 +80,27 @@ export const translations = {
     detRisk: "Fungal Spread Risk",
     detCause: "Primary Cause",
     detTreatment: "Recommended Action Plan",
+    detTreatmentOrganic: "Organic Remedies",
+    detTreatmentChemical: "Chemical Control",
     detExplainBtn: "Generate AI Progression Insights",
     detExplaining: "Consulting AI Pathologist...",
     detExplainTitle: "Explainable AI Insights & Disease Progression",
+    detProgressionInsights: "Progression Insights",
     detSideBySide: "Side-by-Side Analysis",
     detOriginal: "Original Leaf",
     detMarked: "Analyzed Focus",
     detDownloadPdf: "Download PDF Report",
     detHistoryTitle: "Recent Diagnostic Sessions",
-    
+    detListenDiagnosis: "Listen Diagnosis",
+    detMute: "Mute Voice",
+    detLiveViewfinder: "Live Camera Viewfinder",
+    detCancel: "Cancel",
+    detAlignLeaf: "Align Leaf Here",
+    detTakeSnapshot: "Take Snapshot",
+    detRetake: "Retake",
+    detRemove: "Remove",
+    detSelectFirst: "Please select or capture a leaf photograph first.",
+
     // Chat Page
     chatTitle: "AI Agriculture Assistant",
     chatSub: "Ask questions about crop diseases, organic fertilizers, sowing timelines, and seasonal advisories.",
@@ -67,20 +116,45 @@ export const translations = {
     chatStopBtn: "Stop Speaking",
     chatTTSPlay: "Read Response",
     chatTTSStop: "Stop Reading",
-    
-    // Weather Card
+    chatNewSession: "New Chat Session",
+    chatSubSpecialist: "Agronomist Specialist Bot",
+
+    // Weather Module
     weaTitle: "Weather Advisory & Crop Stress",
+    weaSub: "Track real-time microclimate indicators, rain probabilities, and pathogen warnings to schedule crop sprayings.",
     weaCurrent: "Current Climate",
     weaTemp: "Temperature",
     weaHumidity: "Humidity",
+    weaWind: "Wind",
+    weaSky: "Sky Condition",
     weaIrrigation: "Irrigation Advisory",
     weaForecastTitle: "7-Day Weather & Rain Risk",
     weaRiskLabel: "Fungal Risk",
     weaRainProb: "Rain Prob",
     weaStressAlertsTitle: "Crop Stress Warning Alerts",
-    
+    weaLiveLocation: "Live Location",
+    weaUseLiveLocation: "Use Live GPS Location",
+    weaDetectingLocation: "Detecting live GPS location...",
+    weaSearchPlaceholder: "Search district or city...",
+    weaShortcutsTitle: "Quick Regional Monitoring Shortcuts",
+    weaSafetyNoteTitle: "Fungal Infection Risk Safety Note",
+    weaSafetyNoteDesc: "Spores of phytophthora and alternaria multiply when temperatures range between 20°C and 30°C accompanied by relative air humidity exceeding 80%. When such events occur, limit overhead watering and apply protective fungicides.",
+
     // Analytics Page
-    anaTitle: "Analytics & History Overview",
+    anaTitle: "Analytics & Outbreak Trends",
+    anaSub: "Evaluate crop pathogen outbreak trends, accuracy values, and crop health rates across all diagnostic sessions.",
+    anaExportSpreadsheet: "Export Spreadsheet",
+    anaHealthyScans: "Healthy Crops Scans",
+    anaInfectedScans: "Infected Crops Scans",
+    anaAvgConf: "Average Confidence",
+    anaTotalScans: "Total Diagnoses",
+    anaFilterAll: "All Severities",
+    anaFilterSevere: "Severe Cases",
+    anaFilterModerate: "Moderate Cases",
+    anaFilterLow: "Low / Healthy",
+    anaSearchPlaceholder: "Filter by crop disease...",
+    anaOutbreakDist: "Disease Outbreak Distribution",
+    anaMonthlyTrends: "Diagnostic Volume & Trends",
     anaHealthScore: "Aggregate Crop Health Score",
     anaHealthScoreDesc: "Based on recent diagnostic sessions, severe cases vs healthy crops.",
     anaTrendsTitle: "Pathogen Trend Activity (Monthly)",
@@ -90,22 +164,60 @@ export const translations = {
     anaColRisk: "Risk Level",
     anaColSev: "Severity",
     anaColDate: "Session Date",
-    
+
+    // Reports Page
+    repTitle: "Reports & Diagnostic Logs",
+    repSub: "Generate, preview, and export dynamic PDF pathology report sheets or download full CSV spreadsheets.",
+    repExportCsv: "Export CSV Log",
+    repSessionList: "Diagnostic Session Log List",
+    repSearchPlaceholder: "Search by crop disease...",
+    repColId: "#",
+    repColDisease: "Disease Detected",
+    repColConf: "Confidence",
+    repColRisk: "Risk Level",
+    repColSev: "Severity",
+    repColDate: "Date & Time",
+    repColAction: "Action",
+    repDownloadPdf: "PDF Report",
+    repNoRecords: "No diagnostic history records found.",
+
+    // Settings Page
+    setPlatformTitle: "Platform Settings & Configurations",
+    setPlatformSub: "Optimize YOLOv8 path thresholds, configure weather connections, and manage regional language preferences.",
+    setGeneralProfile: "Agronomist Profile",
+    setFarmerName: "Farmer / Agronomist Name",
+    setYoloConfig: "YOLOv8 Detection Threshold",
+    setThresholdHint: "Minimum confidence score required to flag a disease detection (0.1 to 0.9).",
+    setWeatherConfig: "Weather API Key (Optional)",
+    setWeatherHint: "Leave empty to use automatic live GPS weather without requiring an API key.",
+    setLangPref: "Language & Regional Localization",
+    setSaveBtn: "Save Configurations",
+    setSavedAlert: "System configurations updated successfully.",
+
     // Footer
     footDesc: "Ish AI Doctor is an enterprise-grade AI Agriculture SaaS platform empowering farmers with instant pathology diagnostics and weather intelligence.",
     footRights: "All Rights Reserved."
   },
+
   te: {
     title: "ఈష్ AI డాక్టర్",
     subtitle: "AI-ఆధారిత పంట ఆరోగ్య విజ్ఞానం",
     tagline: "మొక్కల వ్యాధులను తక్షణమే గుర్తించండి, చికిత్స సిఫార్సులను పొందండి మరియు ఇంటెలిజెంట్ వ్యవసాయ సహాయకుడితో మాట్లాడండి.",
+    platformSub: "ఈష్ AI డాక్టర్ ప్లాట్‌ఫారమ్ • వెర్షన్ 2.0",
     btnAnalyze: "మొక్కను విశ్లేషించు",
     btnAskAI: "AI సహాయకుడిని అడుగు",
+
+    // Navigation
     navHome: "హోమ్",
+    navDashboard: "డ్యాష్‌బోర్డ్",
     navDetection: "వ్యాధి గుర్తింపు",
     navChat: "AI అసిస్టెంట్",
+    navWeather: "వాతావరణ సలహా",
     navAnalytics: "విశ్లేషణల బోర్డు",
-    
+    navReports: "నివేదికలు & లాగ్‌లు",
+    navSettings: "సిస్టమ్ సెట్టింగ్‌లు",
+
+    // Feature Cards
     featDetectTitle: "వ్యాధి గుర్తింపు",
     featDetectDesc: "కంప్యూటర్ విజన్ ద్వారా వ్యాధిని గుర్తించడానికి ఆకుల ఫోటోలను అప్‌లోడ్ చేయండి.",
     featChatTitle: "AI వ్యవసాయ సహాయకుడు",
@@ -114,18 +226,51 @@ export const translations = {
     featWeatherDesc: "వాతావరణ సూచన, నీటి పారుదల అవసరాలు మరియు శిలీంధ్రాల ప్రమాదాన్ని గమనించండి.",
     featAnalyticsTitle: "స్మార్ట్ అనలిటిక్స్",
     featAnalyticsDesc: "స్థానిక వ్యాధుల వ్యాప్తి మరియు పంట ఆరోగ్య చరిత్రను ట్రాక్ చేయండి.",
-    
+
+    // Stats Section
     statAnalyses: "విశ్లేషణలు",
     statAccuracy: "మోడల్ ఖచ్చితత్వం",
     statResponse: "సమాధాన సమయం",
     statActiveFarmers: "క్రియాశీల రైతులు",
-    
+
+    // Testimonials
     testTitle: "రైతుల నమ్మకం",
     testSub: "ఈష్ AI డాక్టర్ పంట దిగుబడిని మరియు వ్యవసాయాన్ని ఎలా రక్షిస్తుందో చూడండి.",
-    
+
+    // Dashboard Page
+    dashSmartAgro: "స్మార్ట్ వ్యవసాయ AI వేదిక",
+    dashWelcome: "స్వాగతం",
+    dashHeroDesc: "YOLOv8 డీప్ విజన్ మరియు జెమినీ అగ్రానమీ మోడల్స్ ఆధారంగా రియల్-టైమ్ పంట వ్యాధి నిర్ధారణ.",
+    dashTotalScans: "మొత్తం స్కాన్లు",
+    dashSuccessfulDetections: "విజయవంతమైన గుర్తింపులు",
+    dashAvgConf: "సగటు మోడల్ ఖచ్చితత్వం",
+    dashLastAnalyzed: "చివరిగా విశ్లేషించిన వ్యాధి",
+    dashAllTime: "మొత్తం సమయం",
+    dashConfOver50: "ఖచ్చితత్వం >50%",
+    dashAcrossPred: "అన్ని విశ్లేషణల్లో",
+    dashRealTime: "రియల్-టైమ్",
+    dashNoScans: "ఇంకా స్కాన్లు లేవు",
+    dashQuickActions: "ముఖ్యమైన వ్యవసాయ సాధనాలు",
+    dashQuickActionsSub: "వ్యాధి గుర్తింపు, వాతావరణం మరియు నిపుణుల సలహాల సాధనాలను ఉపయోగించండి.",
+    dashCapDetectTitle: "వ్యాధి గుర్తింపు",
+    dashCapDetectDesc: "ఆకు ఫోటోను అప్‌లోడ్ చేసి కంప్యూటర్ విజన్ ద్వారా వ్యాధిని కనుగొనండి.",
+    dashCapAiTitle: "AI సిఫార్సులు",
+    dashCapAiDesc: "సేంద్రీయ నివారణలు, పిచికారీ మోతాదుల కోసం AI చాట్‌బాట్‌ను అడగండి.",
+    dashCapWeatherTitle: "వాతావరణ సమాచారం",
+    dashCapWeatherDesc: "ఉష్ణోగ్రత, వర్షం సూచన మరియు తెగుళ్ల వ్యాప్తి ప్రమాదాన్ని తెలుసుకోండి.",
+    dashCapRealtimeTitle: "రియల్-టైమ్ విశ్లేషణ",
+    dashCapRealtimeDesc: "ఆకు లక్షణాలను పక్కపక్కనే పరిశీలించి స్పష్టమైన ఫలితాలను పొందండి.",
+    dashCapPdfTitle: "PDF నివేదికలు",
+    dashCapPdfDesc: "తీవ్రత, వాతావరణ ప్రమాదం మరియు చికిత్స ప్రణాళికతో కూడిన నివేదిక డౌన్‌లోడ్ చేయండి.",
+    dashCapHistoryTitle: "గత విశ్లేషణల చరిత్ర",
+    dashCapHistoryDesc: "మునుపటి రోగ నిర్ధారణలు మరియు ఇచ్చిన చికిత్స సలహాలను సమీక్షించండి.",
+
+    // Detection Page
     detTitle: "మొక్కల వ్యాధి నిర్ధారణ",
+    detSub: "పంట ఆకులపై వ్యాధులను తక్షణమే గుర్తించడానికి YOLOv8 కంప్యూటర్ విజన్ మోడల్‌ను అమలు చేయండి.",
     detDragDrop: "ఆకు చిత్రాన్ని ఇక్కడ లాగండి లేదా అప్‌లోడ్ చేయడానికి క్లిక్ చేయండి",
     detSupported: "JPG, JPEG, PNG, WEBP ఫార్మాట్లు (గరిష్టంగా 5MB)",
+    detOrCamera: "లేదా కెమెరాతో ఫోటో తీయండి",
     detAnalyzeBtn: "ఆకును విశ్లేషించు",
     detAnalyzing: "YOLOv8 వ్యాధి నిర్ధారణ జరుగుతోంది...",
     detResultsTitle: "వ్యాధి నిర్ధారణ నివేదిక",
@@ -135,15 +280,28 @@ export const translations = {
     detRisk: "శిలీంధ్ర వ్యాప్తి ప్రమాదం",
     detCause: "ప్రధాన కారణం",
     detTreatment: "సిఫార్సు చేయబడిన కార్యాచరణ ప్రణాళిక",
+    detTreatmentOrganic: "సేంద్రీయ నివారణలు",
+    detTreatmentChemical: "రసాయన నియంత్రణ",
     detExplainBtn: "AI వ్యాధి అభివృద్ధి విశ్లేషణను సృష్టించు",
     detExplaining: "AI అసిస్టెంట్ ఆలోచిస్తున్నారు...",
     detExplainTitle: "AI విశ్లేషణ & వ్యాధి అభివృద్ధి",
+    detProgressionInsights: "వ్యాధి అభివృద్ధి వివరాలు",
     detSideBySide: "పక్కపక్కనే విశ్లేషణ",
     detOriginal: "అసలు ఆకు",
     detMarked: "విశ్లేషించబడిన భాగం",
     detDownloadPdf: "PDF నివేదికను డౌన్‌లోడ్ చేయి",
     detHistoryTitle: "ఇటీవలి విశ్లేషణలు",
-    
+    detListenDiagnosis: "వాయిస్ విను",
+    detMute: "వాయిస్ ఆపు",
+    detLiveViewfinder: "లైవ్ కెమెరా వ్యూఫైండర్",
+    detCancel: "రద్దు చేయి",
+    detAlignLeaf: "ఆకును ఇక్కడ అమర్చండి",
+    detTakeSnapshot: "ఫోటో తీయండి",
+    detRetake: "మళ్ళీ తీయి",
+    detRemove: "తొలగించు",
+    detSelectFirst: "దయచేసి ముందుగా ఆకు ఫోటోను ఎంచుకోండి లేదా కెమెరాతో తీయండి.",
+
+    // Chat Page
     chatTitle: "AI వ్యవసాయ సహాయకుడు",
     chatSub: "పంట వ్యాధులు, సేంద్రీయ ఎరువులు మరియు వాతావరణ సలహాల గురించి ప్రశ్నలు అడగండి.",
     chatPlaceholder: "టమోటా తెగులు నివారణ, సేంద్రీయ ఎరువుల మోతాదు గురించి అడగండి...",
@@ -158,18 +316,45 @@ export const translations = {
     chatStopBtn: "మాట్లాడటం ఆపు",
     chatTTSPlay: "సమాధానం విను",
     chatTTSStop: "వాయిస్ ఆపు",
-    
+    chatNewSession: "కొత్త సంభాషణ ప్రారంభించు",
+    chatSubSpecialist: "వ్యవసాయ నిపుణుల బాట్",
+
+    // Weather Module
     weaTitle: "వాతావరణ సలహా & పంట ఒత్తిడి",
+    weaSub: "పంటలకు మందుల పిచికారీ సమయాన్ని నిర్ణయించడానికి ఉష్ణోగ్రత, తేమ మరియు వర్షం సూచనలను ట్రాక్ చేయండి.",
     weaCurrent: "ప్రస్తుత వాతావరణం",
     weaTemp: "ఉష్ణోగ్రత",
     weaHumidity: "తేమ",
+    weaWind: "గాలి వేగం",
+    weaSky: "వాతావరణం",
     weaIrrigation: "నీటి పారుదల సలహా",
     weaForecastTitle: "7-రోజుల వాతావరణ సూచన",
     weaRiskLabel: "తెగులు ప్రమాదం",
     weaRainProb: "వర్షం అవకాశం",
     weaStressAlertsTitle: "పంట ఒత్తిడి హెచ్చరికలు",
-    
-    anaTitle: "విశ్లేషణలు & చరిత్ర",
+    weaLiveLocation: "ప్రత్యక్ష స్థానం (GPS)",
+    weaUseLiveLocation: "నా GPS స్థానం ఉపయోగించు",
+    weaDetectingLocation: "మీ ప్రత్యక్ష GPS స్థానాన్ని గుర్తిస్తోంది...",
+    weaSearchPlaceholder: "జిల్లా లేదా నగరాన్ని శోధించండి...",
+    weaShortcutsTitle: "త్వరిత ప్రాంతీయ పర్యవేక్షణ",
+    weaSafetyNoteTitle: "శిలీంధ్ర వ్యాప్తి భద్రతా సూచన",
+    weaSafetyNoteDesc: "ఉష్ణోగ్రత 20°C నుండి 30°C మధ్య ఉండి గాలిలో తేమ 80% దాటినప్పుడు తెగుళ్ల శిలీంధ్రాలు వేగంగా విస్తరిస్తాయి. ఇలాంటి సమయాల్లో పైనుండి నీటి పిచికారీని తగ్గించి తగిన నివారణ మందులు వాడండి.",
+
+    // Analytics Page
+    anaTitle: "విశ్లేషణలు & వ్యాధుల ధోరణి",
+    anaSub: "గత విశ్లేషణల ఆధారంగా పంట తెగుళ్ల వ్యాప్తి ధోరణులు, మోడల్ ఖచ్చితత్వం మరియు ఆరోగ్య శాతాన్ని పరిశీలించండి.",
+    anaExportSpreadsheet: "స్ప్రెడ్‌షీట్ ఎగుమతి",
+    anaHealthyScans: "ఆరోగ్యకరమైన పంటలు",
+    anaInfectedScans: "వ్యాధి సోకిన పంటలు",
+    anaAvgConf: "సగటు ఖచ్చితత్వం",
+    anaTotalScans: "మొత్తం విశ్లేషణలు",
+    anaFilterAll: "అన్ని రికార్డులు",
+    anaFilterSevere: "తీవ్రమైన కేసులు",
+    anaFilterModerate: "మధ్యస్థ కేసులు",
+    anaFilterLow: "తక్కువ / ఆరోగ్యకరమైనవి",
+    anaSearchPlaceholder: "వ్యాధి పేరుతో ఫిల్టర్ చేయండి...",
+    anaOutbreakDist: "వ్యాధుల వ్యాప్తి నిష్పత్తి",
+    anaMonthlyTrends: "నెలవారీ విశ్లేషణల పరిమాణం",
     anaHealthScore: "సగటు పంట ఆరోగ్య స్కోరు",
     anaHealthScoreDesc: "ఇటీవలి విశ్లేషణలు మరియు వ్యాధుల తీవ్రత ఆధారంగా లెక్కించబడింది.",
     anaTrendsTitle: "నెలవారీ తెగుళ్ల వ్యాప్తి ధోరణి",
@@ -179,21 +364,60 @@ export const translations = {
     anaColRisk: "ప్రమాద స్థాయి",
     anaColSev: "తీవ్రత",
     anaColDate: "తేదీ",
-    
+
+    // Reports Page
+    repTitle: "నివేదికలు & వ్యాధి చరిత్ర లాగ్‌లు",
+    repSub: "డైనమిక్ PDF రోగ నిర్ధారణ నివేదికలను చూడండి మరియు డౌన్‌లోడ్ చేసుకోండి లేదా పూర్తి CSV స్ప్రెడ్‌షీట్ పొందండి.",
+    repExportCsv: "CSV లాగ్ డౌన్‌లోడ్ చేయి",
+    repSessionList: "వ్యాధి నిర్ధారణ సెషన్ల జాబితా",
+    repSearchPlaceholder: "పంట వ్యాధి పేరుతో శోధించండి...",
+    repColId: "#",
+    repColDisease: "గుర్తించిన వ్యాధి",
+    repColConf: "ఖచ్చితత్వం",
+    repColRisk: "ప్రమాద స్థాయి",
+    repColSev: "తీవ్రత",
+    repColDate: "తేదీ & సమయం",
+    repColAction: "చర్య",
+    repDownloadPdf: "PDF నివేదిక",
+    repNoRecords: "ఇంకా ఎలాంటి రోగ నిర్ధారణ రికార్డులు లేవు.",
+
+    // Settings Page
+    setPlatformTitle: "ప్లాట్‌ఫారమ్ సెట్టింగ్‌లు & కాన్ఫిగరేషన్లు",
+    setPlatformSub: "YOLOv8 నిర్ధారణ పరిమితులు, వాతావరణ కనెక్షన్లు మరియు భాష ప్రాధాన్యతలను నిర్వహించండి.",
+    setGeneralProfile: "వ్యవసాయ నిపుణుడి ప్రొఫైల్",
+    setFarmerName: "రైతు / నిపుణుడి పేరు",
+    setYoloConfig: "YOLOv8 గుర్తింపు పరిమితి (Threshold)",
+    setThresholdHint: "వ్యాధిని నిర్ధారించడానికి అవసరమైన కనీస నమ్మక శాతం (0.1 నుండి 0.9 వరకు).",
+    setWeatherConfig: "వాతావరణ API కీ (ఐచ్ఛికం)",
+    setWeatherHint: "API కీ లేకుండానే స్వయంచాలక లైవ్ GPS వాతావరణాన్ని ఉపయోగించడానికి దీనిని ఖాళీగా ఉంచండి.",
+    setLangPref: "భాష & ప్రాంతీయ స్థానికీకరణ",
+    setSaveBtn: "సెట్టింగ్‌లను సేవ్ చేయి",
+    setSavedAlert: "సిస్టమ్ సెట్టింగ్‌లు విజయవంతంగా నవీకరించబడ్డాయి.",
+
+    // Footer
     footDesc: "ఈష్ AI డాక్టర్ అనేది పంట వ్యాధులను తక్షణమే గుర్తించడానికి మరియు వాతావరణ సలహాలను అందించడానికి ఉపయోగపడే ఒక ఆధునిక AI సాఫ్ట్‌వేర్.",
     footRights: "అన్ని హక్కులు ప్రత్యేకించబడ్డాయి."
   },
+
   hi: {
     title: "इश AI डॉक्टर",
     subtitle: "AI-संचालित फसल स्वास्थ्य आसूचना",
     tagline: "पौधों के रोगों का तुरंत पता लगाएं, उपचार की सिफारिशें प्राप्त करें, और एक बुद्धिमान कृषि सहायक के साथ चर्चा करें।",
+    platformSub: "इश AI डॉक्टर प्लेटफ़ॉर्म • संस्करण 2.0",
     btnAnalyze: "फसल का विश्लेषण करें",
     btnAskAI: "AI सहायक से पूछें",
+
+    // Navigation
     navHome: "होम",
+    navDashboard: "डैशबोर्ड",
     navDetection: "रोग निदान",
     navChat: "AI सहायक",
+    navWeather: "मौसम सलाह",
     navAnalytics: "एनालिटिक्स डैशबोर्ड",
-    
+    navReports: "रिपोर्ट्स और लॉग",
+    navSettings: "सिस्टम सेटिंग्स",
+
+    // Feature Cards
     featDetectTitle: "रोग का पता लगाना",
     featDetectDesc: "कंप्यूटर विज़न द्वारा तुरंत बीमारी की पहचान करने के लिए पत्तियों की फ़ोटो अपलोड करें।",
     featChatTitle: "AI कृषि सहायक",
@@ -202,18 +426,51 @@ export const translations = {
     featWeatherDesc: "मौसम पूर्वानुमान, सिंचाई की जरूरतें और कवक (फंगल) के जोखिम को ट्रैक करें।",
     featAnalyticsTitle: "स्मार्ट एनालिटिक्स",
     featAnalyticsDesc: "स्थानीय स्तर पर रोगों के प्रसार और फसल स्वास्थ्य इतिहास को ट्रैक करें।",
-    
+
+    // Stats Section
     statAnalyses: "कुल विश्लेषण",
     statAccuracy: "मॉडल सटीकता",
     statResponse: "प्रतिक्रिया समय",
     statActiveFarmers: "सक्रिय किसान",
-    
+
+    // Testimonials
     testTitle: "किसानों का भरोसा",
     testSub: "देखें कि इश AI डॉक्टर किस प्रकार फसलों को बचाने और कृषि को उन्नत बनाने में मदद कर रहा है।",
-    
+
+    // Dashboard Page
+    dashSmartAgro: "स्मार्ट कृषि AI प्लेटफ़ॉर्म",
+    dashWelcome: "स्वागत है",
+    dashHeroDesc: "YOLOv8 डीप विज़न और जेमिनी एग्रोनॉमी मॉडल द्वारा संचालित रीयल-टाइम फसल रोग निदान।",
+    dashTotalScans: "कुल स्कैन",
+    dashSuccessfulDetections: "सफल पहचान",
+    dashAvgConf: "औसत मॉडल सटीकता",
+    dashLastAnalyzed: "अंतिम विश्लेषित रोग",
+    dashAllTime: "शुरुआत से अब तक",
+    dashConfOver50: "सटीकता >50%",
+    dashAcrossPred: "सभी विश्लेषणों में",
+    dashRealTime: "रीयल-टाइम",
+    dashNoScans: "अभी कोई स्कैन नहीं",
+    dashQuickActions: "प्रमुख कृषि सुविधाएं",
+    dashQuickActionsSub: "रोग निदान, मौसम निगरानी और कृषि विशेषज्ञ सलाह के लिए साधन चुनें।",
+    dashCapDetectTitle: "रोग निदान",
+    dashCapDetectDesc: "कंप्यूटर विज़न स्कैनिंग चलाने के लिए पत्ती की तस्वीर अपलोड करें।",
+    dashCapAiTitle: "AI सिफारिशें",
+    dashCapAiDesc: "जैविक उपचार, रोकथाम के उपाय और छिड़काव सलाह के लिए AI से पूछें।",
+    dashCapWeatherTitle: "मौसम आसूचना",
+    dashCapWeatherDesc: "तापमान, बारिश के संकेत और कवक के खतरे की चेतावनी देखें।",
+    dashCapRealtimeTitle: "रीयल-टाइम विश्लेषण",
+    dashCapRealtimeDesc: "रोगग्रस्त पत्तियों के लक्षणों का स्पष्ट तुलनात्मक विश्लेषण देखें।",
+    dashCapPdfTitle: "PDF रिपोर्ट",
+    dashCapPdfDesc: "गंभीरता, मौसम के जोखिम और उपचार सहित विस्तृत रिपोर्ट डाउनलोड करें।",
+    dashCapHistoryTitle: "निदान इतिहास",
+    dashCapHistoryDesc: "रोगों के प्रसार को समझने के लिए पिछले निदान और सलाह की समीक्षा करें।",
+
+    // Detection Page
     detTitle: "पौधों के रोग का निदान",
+    detSub: "पत्तियों पर तुरंत रोग की पहचान के लिए YOLOv8 कंप्यूटर विज़न मॉडल चलाएं।",
     detDragDrop: "पत्ती का चित्र यहाँ खींचे या अपलोड करने के लिए क्लिक करें",
     detSupported: "JPG, JPEG, PNG, WEBP प्रारूप (अधिकतम 5MB)",
+    detOrCamera: "या लाइव फोटो खींचने के लिए कैमरा दबाएं",
     detAnalyzeBtn: "पत्ती का विश्लेषण करें",
     detAnalyzing: "YOLOv8 रोग निदान सक्रिय है...",
     detResultsTitle: "निदान रिपोर्ट",
@@ -223,15 +480,28 @@ export const translations = {
     detRisk: "कवक प्रसार का जोखिम",
     detCause: "मुख्य कारण",
     detTreatment: "अनुशंसित कार्य योजना",
+    detTreatmentOrganic: "जैविक उपचार",
+    detTreatmentChemical: "रासायनिक नियंत्रण",
     detExplainBtn: "AI रोग प्रगति विश्लेषण बनाएं",
     detExplaining: "AI रोगविज्ञानी से सलाह ली जा रही है...",
     detExplainTitle: "विस्तृत AI अंतर्दृष्टि और रोग का फैलाव",
+    detProgressionInsights: "रोग विकास की जानकारी",
     detSideBySide: "पार्श्व-दर-पार्श्व विश्लेषण",
     detOriginal: "मूल पत्ती",
     detMarked: "विश्लेषित हिस्सा",
     detDownloadPdf: "PDF रिपोर्ट डाउनलोड करें",
     detHistoryTitle: "हालिया निदान सत्र",
-    
+    detListenDiagnosis: "आवाज सुनें",
+    detMute: "आवाज बंद करें",
+    detLiveViewfinder: "लाइव कैमरा व्यूफ़ाइंडर",
+    detCancel: "रद्द करें",
+    detAlignLeaf: "पत्ती को यहाँ रखें",
+    detTakeSnapshot: "फोटो खींचें",
+    detRetake: "फिर से लें",
+    detRemove: "हटाएं",
+    detSelectFirst: "कृपया पहले पत्ती का फोटो चुनें या कैमरे से खींचें।",
+
+    // Chat Page
     chatTitle: "AI कृषि सहायक",
     chatSub: "फसल की बीमारियों, जैविक खाद, बुवाई की अवधि और मौसमी सलाह के बारे में प्रश्न पूछें।",
     chatPlaceholder: "टमाटर झुलसा रोग नियंत्रण, जैविक खाद की मात्रा के बारे में पूछें...",
@@ -246,18 +516,45 @@ export const translations = {
     chatStopBtn: "बोलना बंद करें",
     chatTTSPlay: "उत्तर सुनें",
     chatTTSStop: "आवाज बंद करें",
-    
+    chatNewSession: "नया चैट सत्र",
+    chatSubSpecialist: "कृषि विशेषज्ञ बॉट",
+
+    // Weather Module
     weaTitle: "मौसम सलाह और फसल तनाव",
+    weaSub: "छिड़काव का सही समय तय करने के लिए सटीक तापमान, आर्द्रता और बारिश के पूर्वानुमान को ट्रैक करें।",
     weaCurrent: "वर्तमान मौसम",
     weaTemp: "तापमान",
     weaHumidity: "आर्द्रता",
+    weaWind: "हवा की गति",
+    weaSky: "आकाश की स्थिति",
     weaIrrigation: "सिंचाई सलाह",
     weaForecastTitle: "7-दिवसीय मौसम पूर्वानुमान",
     weaRiskLabel: "कवक जोखिम",
     weaRainProb: "बारिश की संभावना",
     weaStressAlertsTitle: "फसल तनाव चेतावनी अलर्ट",
-    
-    anaTitle: "एनालिटिक्स और इतिहास",
+    weaLiveLocation: "वर्तमान सटीक स्थान (GPS)",
+    weaUseLiveLocation: "लाइव GPS स्थान का उपयोग करें",
+    weaDetectingLocation: "वर्तमान स्थान का पता लगाया जा रहा है...",
+    weaSearchPlaceholder: "जिला या शहर खोजें...",
+    weaShortcutsTitle: "त्वरित क्षेत्रीय निगरानी शॉर्टकट",
+    weaSafetyNoteTitle: "कवक संक्रमण जोखिम सुरक्षा नोट",
+    weaSafetyNoteDesc: "जब तापमान 20°C से 30°C के बीच हो और हवा में नमी 80% से अधिक हो, तो कवक के जीवाणु तेजी से बढ़ते हैं। ऐसे समय में ऊपर से पानी देने से बचें और फफूंदनाशक का छिड़काव करें।",
+
+    // Analytics Page
+    anaTitle: "एनालिटिक्स और प्रकोप रुझान",
+    anaSub: "सभी निदान सत्रों में फसल रोग प्रकोप के रुझान, मॉडल सटीकता और फसल स्वास्थ्य दरों का मूल्यांकन करें।",
+    anaExportSpreadsheet: "स्प्रेडशीट डाउनलोड करें",
+    anaHealthyScans: "स्वस्थ फसल स्कैन",
+    anaInfectedScans: "संक्रमित फसल स्कैन",
+    anaAvgConf: "औसत सटीकता",
+    anaTotalScans: "कुल निदान",
+    anaFilterAll: "सभी रिकॉर्ड",
+    anaFilterSevere: "गंभीर मामले",
+    anaFilterModerate: "मध्यम मामले",
+    anaFilterLow: "कम / स्वस्थ",
+    anaSearchPlaceholder: "रोग के नाम से खोजें...",
+    anaOutbreakDist: "रोग प्रकोप वितरण",
+    anaMonthlyTrends: "मासिक निदान मात्रा और रुझान",
     anaHealthScore: "कुल फसल स्वास्थ्य स्कोर",
     anaHealthScoreDesc: "हाल के निदान सत्रों और बीमारी की गंभीरता के आधार पर गणना की गई है।",
     anaTrendsTitle: "मासिक रोग प्रसार गतिविधि",
@@ -267,7 +564,37 @@ export const translations = {
     anaColRisk: "जोखिम का स्तर",
     anaColSev: "गंभीरता",
     anaColDate: "सत्र की तारीख",
-    
+
+    // Reports Page
+    repTitle: "रिपोर्ट्स और निदान रिकॉर्ड",
+    repSub: "गतिशील PDF रोग निदान रिपोर्ट देखें और डाउनलोड करें अथवा पूरी CSV स्प्रेडशीट प्राप्त करें।",
+    repExportCsv: "CSV लॉग डाउनलोड करें",
+    repSessionList: "निदान सत्रों की सूची",
+    repSearchPlaceholder: "फसल रोग के नाम से खोजें...",
+    repColId: "#",
+    repColDisease: "पहचाना गया रोग",
+    repColConf: "सटीकता",
+    repColRisk: "जोखिम स्तर",
+    repColSev: "गंभीरता",
+    repColDate: "तारीख और समय",
+    repColAction: "कार्रवाई",
+    repDownloadPdf: "PDF रिपोर्ट",
+    repNoRecords: "कोई निदान रिकॉर्ड नहीं मिला।",
+
+    // Settings Page
+    setPlatformTitle: "प्लेटफ़ॉर्म सेटिंग्स और कॉन्फ़िगरेशन",
+    setPlatformSub: "YOLOv8 पहचान थ्रेसहोल्ड, मौसम कनेक्शन प्रबंधित करें और क्षेत्रीय भाषा प्राथमिकताएं सेट करें।",
+    setGeneralProfile: "कृषि विशेषज्ञ प्रोफ़ाइल",
+    setFarmerName: "किसान / विशेषज्ञ का नाम",
+    setYoloConfig: "YOLOv8 पहचान थ्रेसहोल्ड",
+    setThresholdHint: "रोग की पुष्टि के लिए आवश्यक न्यूनतम सटीकता स्कोर (0.1 से 0.9)।",
+    setWeatherConfig: "मौसम API कुंजी (वैकल्पिक)",
+    setWeatherHint: "बिना किसी API कुंजी के स्वचालित लाइव GPS मौसम का उपयोग करने के लिए इसे खाली छोड़ दें।",
+    setLangPref: "भाषा और क्षेत्रीय स्थानीयकरण",
+    setSaveBtn: "सेटिंग्स सुरक्षित करें",
+    setSavedAlert: "सिस्टम सेटिंग्स सफलतापूर्वक अपडेट की गईं।",
+
+    // Footer
     footDesc: "इश AI डॉक्टर एक उच्च स्तरीय कृषि AI प्लेटफ़ॉर्म है जो किसानों को तत्काल रोग निदान और मौसम सलाह प्रदान करता है।",
     footRights: "सर्वाधिकार सुरक्षित।"
   }

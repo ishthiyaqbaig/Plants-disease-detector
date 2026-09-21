@@ -51,10 +51,18 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]"
         >
-          {t.subtitle.split(" Health ")[0]}
-          <span className="bg-gradient-to-r from-emerald-400 via-emerald-300 to-lime-400 bg-clip-text text-transparent block md:inline">
-            {" "}{t.subtitle.split("Crop ")[1] || "Health Intelligence"}
-          </span>
+          {lang === "en" ? (
+            <>
+              AI-Powered{" "}
+              <span className="bg-gradient-to-r from-emerald-400 via-emerald-300 to-lime-400 bg-clip-text text-transparent block md:inline">
+                Crop Health Intelligence
+              </span>
+            </>
+          ) : (
+            <span className="bg-gradient-to-r from-emerald-400 via-emerald-300 to-lime-400 bg-clip-text text-transparent">
+              {t.subtitle}
+            </span>
+          )}
         </motion.h1>
 
         {/* Tagline Description */}

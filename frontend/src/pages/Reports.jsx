@@ -112,10 +112,10 @@ export default function Reports() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[var(--card-border)] pb-5">
         <div>
           <h2 className="text-3xl font-extrabold text-slate-100 tracking-tight leading-tight">
-            📂 Reports & Diagnostic Logs
+            📂 {t.repTitle || "Reports & Diagnostic Logs"}
           </h2>
           <p className="text-slate-400 text-sm">
-            Generate, preview, and export dynamic PDF pathology report sheets or download full CSV spreadsheets.
+            {t.repSub || "Generate, preview, and export dynamic PDF pathology report sheets or download full CSV spreadsheets."}
           </p>
         </div>
         
@@ -125,7 +125,7 @@ export default function Reports() {
           className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#22C55E] hover:bg-[#22C55E]/90 text-slate-950 text-xs font-bold transition duration-300 shadow-md shrink-0 disabled:opacity-40"
         >
           <FileDown size={14} />
-          Export CSV Log
+          {t.repExportCsv || "Export CSV Log"}
         </button>
       </div>
 
@@ -136,7 +136,7 @@ export default function Reports() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <h3 className="text-xs font-bold text-slate-200 uppercase tracking-wide flex items-center gap-2">
             <History className="text-[#22C55E]" size={14} />
-            Diagnostic Session Log List
+            {t.repSessionList || "Diagnostic Session Log List"}
           </h3>
 
           <div className="relative w-full sm:w-60">
@@ -144,7 +144,7 @@ export default function Reports() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by crop disease..."
+              placeholder={t.repSearchPlaceholder || "Search by crop disease..."}
               className="w-full bg-[var(--bg-dark)] border border-[var(--card-border)] rounded-xl py-1.5 pl-3.5 pr-8 text-xs text-slate-300 focus:outline-none focus:border-[#22C55E] transition"
             />
             <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600" size={12} />
@@ -158,17 +158,17 @@ export default function Reports() {
               <span className="w-5 h-5 rounded-full border-2 border-[#22C55E] border-t-transparent animate-spin" />
             </div>
           ) : filteredHistory.length === 0 ? (
-            <p className="text-xs text-slate-500 italic py-12 text-center">No diagnostic sessions found.</p>
+            <p className="text-xs text-slate-500 italic py-12 text-center">{t.repNoRecords || "No diagnostic sessions found."}</p>
           ) : (
             <table className="w-full text-left text-xs border-collapse">
               <thead>
                 <tr className="bg-[var(--bg-dark)] border-b border-[var(--card-border)] text-slate-400 font-bold uppercase tracking-wider">
-                  <th className="p-4">Session ID</th>
-                  <th className="p-4">Disease Classification</th>
-                  <th className="p-4">YOLOv8 Accuracy</th>
-                  <th className="p-4">Severity / Risk</th>
-                  <th className="p-4">Session Timestamp</th>
-                  <th className="p-4 text-center">Action Report</th>
+                  <th className="p-4">{t.repColId || "Session ID"}</th>
+                  <th className="p-4">{t.repColDisease || "Disease Classification"}</th>
+                  <th className="p-4">{t.repColConf || "YOLOv8 Accuracy"}</th>
+                  <th className="p-4">{t.repColSev || "Severity"} / {t.repColRisk || "Risk"}</th>
+                  <th className="p-4">{t.repColDate || "Session Timestamp"}</th>
+                  <th className="p-4 text-center">{t.repColAction || "Action Report"}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--card-border)] text-slate-300 font-medium">
@@ -199,7 +199,7 @@ export default function Reports() {
                           ) : (
                             <Download size={10} />
                           )}
-                          PDF
+                          {t.repDownloadPdf || "PDF"}
                         </button>
                       </td>
                     </tr>

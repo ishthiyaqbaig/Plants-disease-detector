@@ -40,10 +40,16 @@ export default function Detection() {
     }
   };
 
-  const loadWeatherData = async (city = "Hyderabad") => {
+  const loadWeatherData = async ({ targetCity, lat, lon } = {}) => {
     setWeatherLoading(true);
     try {
-      const res = await API.get(`/weather?city=${city}`);
+      let queryStr = "";
+      if (lat !== undefined && lon !== undefined) {
+        queryStr = `lat=${lat}&lon=${lon}`;
+      } else if (targetCity && targetCity.trim()) {
+        queryStr = `city=${encodeURIComponent(targetCity.trim())}`;
+      }
+      const res = await API.get(`/weather${queryStr ? `?${queryStr}` : ""}`);
       setWeatherData(res.data);
     } catch (err) {
       console.error("Failed to load weather stats:", err);
@@ -51,9 +57,22 @@ export default function Detection() {
     setWeatherLoading(false);
   };
 
+  const detectLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          loadWeatherData({ lat: pos.coords.latitude, lon: pos.coords.longitude });
+        },
+        () => loadWeatherData()
+      );
+    } else {
+      loadWeatherData();
+    }
+  };
+
   useEffect(() => {
     loadHistory();
-    loadWeatherData();
+    detectLocation();
   }, [result]);
 
   const generateMockHistory = () => {
@@ -66,7 +85,7 @@ export default function Detection() {
 
   const uploadImage = async () => {
     if (!file) {
-      alert("Please select or drag a leaf photograph first.");
+      alert(t.detSelectFirst || "Please select or capture a leaf photograph first.");
       return;
     }
 
@@ -80,7 +99,7 @@ export default function Detection() {
       const response = await API.post("/predict", formData);
       setResult(response.data);
     } catch (err) {
-      alert(err.response?.data?.detail || "YOLOv8 target scan failed. Please check server.");
+      alert(err.response?.data?.detail || "YOLOv8 diagnostic scan failed. Please verify backend server.");
     }
     setLoading(false);
   };
@@ -91,10 +110,10 @@ export default function Detection() {
       {/* Header Panel */}
       <div className="space-y-1">
         <h2 className="text-3xl font-extrabold text-slate-100 tracking-tight leading-tight">
-          🌱 {t.detTitle}
+          🌱 {t.detTitle || "Plant Disease Diagnostics"}
         </h2>
         <p className="text-slate-400 text-sm">
-          Execute YOLOv8 computer vision classification weights against plant leaves to identify disease occurrences.
+          {t.detSub || "Execute YOLOv8 computer vision classification weights against plant leaves to identify disease occurrences."}
         </p>
       </div>
 
@@ -105,7 +124,7 @@ export default function Detection() {
         <div className="lg:col-span-3 space-y-6">
           
           {/* Upload card */}
-          <UploadCard file={file} setFile={setFile} loading={loading} />
+          <UploadCard file={file} setFile={setFile} loading={loading} t={t} />
 
           {/* Trigger button */}
           {file && !result && (
@@ -136,11 +155,13 @@ export default function Detection() {
               weatherData={weatherData}
               loading={weatherLoading}
               t={t}
-              onCitySearch={(city) => loadWeatherData(city)}
+              onCitySearch={(city) => loadWeatherData({ targetCity: city })}
+              onDetectLocation={detectLocation}
             />
           )}
 
         </div>
+
 
         {/* Right 1 Column: History log list */}
         <div className="lg:col-span-1 space-y-6">

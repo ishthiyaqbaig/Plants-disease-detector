@@ -20,11 +20,17 @@ backend/instance/
 backend/htmlcov/
 backend/.pytest_cache/
 
-# Large ML Weights / Temp Data
+# Large ML Weights / Temp Data / Training Runs
 dataset/
-weights/*.pt
+runs/
+scripts/runs/
+yolov8*.pt
 weights/*.onnx
 trainings/
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Editor & OS
 .idea/
 .vscode/
 *.log

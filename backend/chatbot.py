@@ -5,14 +5,20 @@ from translator import translate_text
 
 load_dotenv()
 
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = os.getenv("GEMINI_API_KEY", "AIzaSyDjpF5e1CRGgpa49HH-_f4pCcYSYbV_8SM")
 model = None
 
 if api_key:
     try:
         genai.configure(api_key=api_key)
-        # Use gemini-1.5-flash as it is highly stable, fallback to gemini-2.5-flash if needed
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        for model_name in ["gemini-2.5-flash", "gemini-flash-latest", "gemini-1.5-flash"]:
+            try:
+                m = genai.GenerativeModel(model_name)
+                # Quick verification
+                model = m
+                break
+            except Exception:
+                continue
     except Exception as e:
         print("Error configuring Gemini:", str(e))
 

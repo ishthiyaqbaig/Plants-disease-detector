@@ -32,13 +32,13 @@ export default function Sidebar({ collapsed, setCollapsed }) {
 
   // Sidebar link items (including reports and settings)
   const menuItems = [
-    { path: "/", label: "Dashboard", icon: LayoutDashboard },
+    { path: "/", label: t.navDashboard || "Dashboard", icon: LayoutDashboard },
     { path: "/detect", label: t.navDetection || "Disease Detection", icon: Scan },
-    { path: "/chat", label: t.navChat || "AI Chat Bot", icon: MessageSquare },
-    { path: "/weather", label: t.navWeatherTitle?.split(" & ")[0] || "Weather Advisory", icon: CloudSun },
+    { path: "/chat", label: t.navChat || "AI Assistant", icon: MessageSquare },
+    { path: "/weather", label: t.navWeather || "Weather Advisory", icon: CloudSun },
     { path: "/analytics", label: t.navAnalytics || "Analytics", icon: BarChart3 },
-    { path: "/reports", label: "Reports", icon: FileDown },
-    { path: "/settings", label: "Settings", icon: Settings },
+    { path: "/reports", label: t.navReports || "Reports & Logs", icon: FileDown },
+    { path: "/settings", label: t.navSettings || "Settings", icon: Settings },
   ];
 
   return (

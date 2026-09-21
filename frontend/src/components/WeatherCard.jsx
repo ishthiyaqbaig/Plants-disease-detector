@@ -1,22 +1,29 @@
 import { useState, useEffect } from "react";
-import { Thermometer, Droplets, Wind, Search, AlertTriangle, AlertCircle, CheckCircle2, CloudRain } from "lucide-react";
+import { Thermometer, Droplets, Wind, Search, AlertTriangle, AlertCircle, CheckCircle2, CloudRain, MapPin } from "lucide-react";
 
-export default function WeatherCard({ weatherData, loading, t, onCitySearch }) {
-  const [query, setQuery] = useState("Hyderabad");
+export default function WeatherCard({ weatherData, loading, t, onCitySearch, onDetectLocation }) {
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    if (weatherData?.current?.city && weatherData.current.city !== "Live Location" && weatherData.current.city !== "Local Farm") {
+      setQuery(weatherData.current.city);
+    }
+  }, [weatherData]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (query.trim()) {
-      onCitySearch(query);
+      onCitySearch(query.trim());
     }
   };
 
-  const getConditionEmoji = (cond) => {
+  const getConditionEmoji = (cond = "") => {
     const c = cond.toLowerCase();
     if (c.includes("sun") || c.includes("clear")) return "☀️";
-    if (c.includes("cloud")) return "⛅";
-    if (c.includes("rain") || c.includes("shower")) return "🌧️";
+    if (c.includes("cloud") || c.includes("overcast")) return "⛅";
+    if (c.includes("rain") || c.includes("shower") || c.includes("drizzle")) return "🌧️";
     if (c.includes("thunder")) return "⛈️";
+    if (c.includes("fog")) return "🌫️";
     return "⛅";
   };
 
@@ -35,23 +42,38 @@ export default function WeatherCard({ weatherData, loading, t, onCitySearch }) {
           <span>🌦️</span> {t.weaTitle || "Weather Advisory & Crop Stress"}
         </h3>
         
-        {/* City Search Bar */}
-        <form onSubmit={handleSearchSubmit} className="flex w-full sm:w-auto relative">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search district..."
-            className="w-full sm:w-48 bg-[var(--bg-dark)] border border-[var(--card-border)] rounded-xl py-1.5 pl-3.5 pr-8 text-xs text-[var(--text-primary)] focus:outline-none focus:border-[#22C55E] transition"
-          />
-          <button
-            type="submit"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-[#22C55E]"
-          >
-            <Search size={14} />
-          </button>
-        </form>
+        {/* Search and Live GPS Controls */}
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+          {onDetectLocation && (
+            <button
+              type="button"
+              onClick={onDetectLocation}
+              title={t.weaUseLiveLocation || "Use Live Location"}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#22C55E]/10 hover:bg-[#22C55E]/20 text-[#22C55E] border border-[#22C55E]/25 text-xs font-bold transition shrink-0"
+            >
+              <MapPin size={13} className="animate-pulse" />
+              <span className="hidden md:inline">{t.weaUseLiveLocation || "Live GPS"}</span>
+            </button>
+          )}
+
+          <form onSubmit={handleSearchSubmit} className="flex flex-1 sm:w-auto relative">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={t.weaSearchPlaceholder || "Search district or city..."}
+              className="w-full sm:w-48 bg-[var(--bg-dark)] border border-[var(--card-border)] rounded-xl py-1.5 pl-3.5 pr-8 text-xs text-[var(--text-primary)] focus:outline-none focus:border-[#22C55E] transition"
+            />
+            <button
+              type="submit"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-[#22C55E]"
+            >
+              <Search size={14} />
+            </button>
+          </form>
+        </div>
       </div>
+
 
       {loading ? (
         <div className="flex justify-center items-center py-12">
@@ -81,7 +103,9 @@ export default function WeatherCard({ weatherData, loading, t, onCitySearch }) {
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Wind className="text-slate-400" size={18} />
-                    <span className="text-xs font-bold text-slate-300 font-mono">12.5 km/h Wind</span>
+                    <span className="text-xs font-bold text-slate-300 font-mono">
+                      {weatherData.current.wind_speed ? `${weatherData.current.wind_speed} km/h` : "10 km/h"} {t.weaWind || "Wind"}
+                    </span>
                   </div>
                 </div>
                 <div className="text-4xl filter drop-shadow-[0_0_8px_rgba(255,255,255,0.05)]">
@@ -89,7 +113,7 @@ export default function WeatherCard({ weatherData, loading, t, onCitySearch }) {
                 </div>
               </div>
               <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider italic">
-                Sky: {weatherData.current.description}
+                {t.weaSky || "Sky"}: {weatherData.current.description}
               </p>
             </div>
 

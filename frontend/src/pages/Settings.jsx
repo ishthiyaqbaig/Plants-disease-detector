@@ -31,7 +31,7 @@ export default function Settings() {
     localStorage.setItem("agri_farmer_name", farmerName);
     localStorage.setItem("agri_yolo_threshold", yoloThreshold);
     localStorage.setItem("agri_weather_key", weatherKey);
-    alert("System configurations updated successfully.");
+    alert(t.setSavedAlert || "System configurations updated successfully.");
   };
 
   return (
@@ -41,10 +41,10 @@ export default function Settings() {
       <div className="border-b border-[var(--card-border)] pb-5">
         <h2 className="text-3xl font-extrabold text-slate-100 tracking-tight leading-tight flex items-center gap-2.5">
           <SettingsIcon size={28} className="text-[#22C55E]" />
-          Platform Settings & Configurations
+          {t.setPlatformTitle || "Platform Settings & Configurations"}
         </h2>
         <p className="text-slate-400 text-sm">
-          Optimize YOLOv8 path thresholds, configure weather connections, and save regional language details.
+          {t.setPlatformSub || "Optimize YOLOv8 path thresholds, configure weather connections, and save regional language details."}
         </p>
       </div>
 
@@ -58,11 +58,11 @@ export default function Settings() {
           <div className="dashboard-card p-5 bg-[var(--card-bg)] space-y-4">
             <h3 className="text-xs font-bold text-slate-200 uppercase tracking-wide flex items-center gap-2 border-b border-[var(--card-border)] pb-3">
               <User size={14} className="text-[#22C55E]" />
-              Farmer / Admin Profile
+              {t.setGeneralProfile || "Farmer / Admin Profile"}
             </h3>
             
             <div className="space-y-1 text-left">
-              <label className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Farmer Name / Farm ID</label>
+              <label className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{t.setFarmerName || "Farmer Name / Farm ID"}</label>
               <input
                 type="text"
                 value={farmerName}
@@ -76,7 +76,7 @@ export default function Settings() {
           <div className="dashboard-card p-5 bg-[var(--card-bg)] space-y-4">
             <h3 className="text-xs font-bold text-slate-200 uppercase tracking-wide flex items-center gap-2 border-b border-[var(--card-border)] pb-3">
               <Globe size={14} className="text-[#3B82F6]" />
-              System Language Preference
+              {t.setLangPref || "System Language Preference"}
             </h3>
             
             <div className="space-y-3">
@@ -109,8 +109,8 @@ export default function Settings() {
           {/* YOLO diagnostic threshold */}
           <div className="dashboard-card p-5 bg-[var(--card-bg)] space-y-4">
             <h3 className="text-xs font-bold text-slate-200 uppercase tracking-wide flex items-center gap-2 border-b border-[var(--card-border)] pb-3">
-              <SidIcon size={14} className="text-[#A855F7]" />
-              YOLOv8 Inference Threshold
+              <Shield size={14} className="text-[#A855F7]" />
+              {t.setYoloConfig || "YOLOv8 Inference Threshold"}
             </h3>
             <div className="space-y-4">
               <div className="flex justify-between items-center text-xs">
@@ -127,7 +127,7 @@ export default function Settings() {
                 className="w-full h-1 bg-[var(--bg-dark)] rounded-lg appearance-none cursor-pointer accent-[#A855F7]"
               />
               <p className="text-[10px] text-slate-500 leading-normal">
-                Adjusting this ratio changes YOLOv8 diagnostic filters. Lower thresholds capture moderate/minor infections but increase false positives.
+                {t.setThresholdHint || "Adjusting this ratio changes YOLOv8 diagnostic filters. Lower thresholds capture moderate/minor infections but increase false positives."}
               </p>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function Settings() {
           <div className="dashboard-card p-5 bg-[var(--card-bg)] space-y-4">
             <h3 className="text-xs font-bold text-slate-200 uppercase tracking-wide flex items-center gap-2 border-b border-[var(--card-border)] pb-3">
               <Cloud size={14} className="text-[#FACC15]" />
-              OpenWeather API Integrator
+              {t.setWeatherConfig || "OpenWeather API Integrator"}
             </h3>
             <div className="space-y-3">
               <div className="space-y-1 text-left">
@@ -150,7 +150,7 @@ export default function Settings() {
                 />
               </div>
               <p className="text-[10px] text-slate-500 leading-normal">
-                If left blank, Ish AI Doctor serves regional climate forecaster simulations safely without key errors.
+                {t.setWeatherHint || "If left blank, Ish AI Doctor uses automatic live GPS weather without requiring an API key."}
               </p>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function Settings() {
               className="w-full py-3 rounded-2xl bg-[#22C55E] hover:bg-[#22C55E]/90 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(34,197,94,0.25)] transition duration-300"
             >
               <Save size={14} />
-              Save Configurations
+              {t.setSaveBtn || "Save Configurations"}
             </button>
           </div>
         </div>

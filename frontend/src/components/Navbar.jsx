@@ -37,15 +37,15 @@ export default function Navbar() {
       case "/chat":
         return t.navChat || "AI Chat Bot";
       case "/weather":
-        return "Weather Intelligence";
+        return t.navWeather || "Weather Advisory";
       case "/analytics":
         return t.navAnalytics || "Analytics Dashboard";
       case "/reports":
-        return "Reports & Spreadsheet Logs";
+        return t.navReports || "Reports & Logs";
       case "/settings":
-        return "System Settings";
+        return t.navSettings || "System Settings";
       default:
-        return "Agriculture Intelligence Dashboard";
+        return t.navDashboard || "Agriculture Intelligence Dashboard";
     }
   };
 
@@ -58,9 +58,10 @@ export default function Navbar() {
           {getPageTitle()}
         </h1>
         <p className="text-[9px] text-[var(--text-muted)] font-bold tracking-wider uppercase mt-0.5 hidden sm:block">
-          Ish AI Doctor Platform &bull; v2.0
+          {t.platformSub || "Ish AI Doctor Platform • v2.0"}
         </p>
       </div>
+
 
       {/* Right Controls */}
       <div className="flex items-center gap-3">

@@ -153,7 +153,7 @@ export default function Analytics() {
             📊 {t.anaTitle || "Analytics & History Overview"}
           </h2>
           <p className="text-slate-400 text-sm">
-            Evaluate crop pathogen outbreak trends, accuracy values, and crop health rates.
+            {t.anaSub || "Evaluate crop pathogen outbreak trends, accuracy values, and crop health rates."}
           </p>
         </div>
         <button
@@ -161,7 +161,7 @@ export default function Analytics() {
           className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#22C55E] hover:bg-[#22C55E]/90 text-slate-950 text-xs font-bold transition duration-300 shadow-md shrink-0"
         >
           <FileSpreadsheet size={14} />
-          Export Spreadsheet
+          {t.anaExportSpreadsheet || "Export Spreadsheet"}
         </button>
       </div>
 
@@ -171,7 +171,7 @@ export default function Analytics() {
         {/* Healthy Crops */}
         <div className="dashboard-card p-5 bg-[var(--card-bg)] flex items-center justify-between">
           <div className="space-y-1">
-            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Healthy Crops Scans</p>
+            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{t.anaHealthyScans || "Healthy Crops Scans"}</p>
             <h2 className="text-3xl font-black text-[#22C55E] font-mono">{healthyCount}</h2>
           </div>
           <div className="p-3 bg-[#22C55E]/10 rounded-2xl border border-[#22C55E]/20 text-[#22C55E]">
@@ -182,7 +182,7 @@ export default function Analytics() {
         {/* Infected Crops */}
         <div className="dashboard-card p-5 bg-[var(--card-bg)] flex items-center justify-between">
           <div className="space-y-1">
-            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Infected Crops Scans</p>
+            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{t.anaInfectedScans || "Infected Crops Scans"}</p>
             <h2 className="text-3xl font-black text-red-400 font-mono">{diseasedCount}</h2>
           </div>
           <div className="p-3 bg-red-500/10 rounded-2xl border border-red-500/20 text-red-400">
@@ -193,7 +193,7 @@ export default function Analytics() {
         {/* Avg Confidence */}
         <div className="dashboard-card p-5 bg-[var(--card-bg)] flex items-center justify-between">
           <div className="space-y-1">
-            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Average Confidence</p>
+            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{t.anaAvgConf || "Average Confidence"}</p>
             <h2 className="text-3xl font-black text-[#3B82F6] font-mono">{avgConfidence}%</h2>
           </div>
           <div className="p-3 bg-[#3B82F6]/10 rounded-2xl border border-[#3B82F6]/20 text-[#3B82F6]">
@@ -204,7 +204,7 @@ export default function Analytics() {
         {/* Total Diagnoses */}
         <div className="dashboard-card p-5 bg-[var(--card-bg)] flex items-center justify-between">
           <div className="space-y-1">
-            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Total Scans</p>
+            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{t.anaTotalScans || "Total Scans"}</p>
             <h2 className="text-3xl font-black text-[#A855F7] font-mono">{totalScans}</h2>
           </div>
           <div className="p-3 bg-[#A855F7]/10 rounded-2xl border border-[#A855F7]/20 text-[#A855F7]">
@@ -220,7 +220,7 @@ export default function Analytics() {
         {/* Line Chart: Detection Trends */}
         <div className="dashboard-card p-5 bg-[var(--card-bg)] space-y-4">
           <h3 className="text-xs font-bold text-slate-200 uppercase tracking-wide border-b border-[var(--card-border)] pb-3">
-            Detection Trends (Daily Scans)
+            {t.anaTrendsTitle || "Detection Trends (Daily Scans)"}
           </h3>
           <div className="h-60 w-full">
             {lineChartData.length > 0 ? (
@@ -242,7 +242,7 @@ export default function Analytics() {
         {/* Pie Chart: Disease Distribution */}
         <div className="dashboard-card p-5 bg-[var(--card-bg)] space-y-4">
           <h3 className="text-xs font-bold text-slate-200 uppercase tracking-wide border-b border-[var(--card-border)] pb-3">
-            Infected Disease Distribution
+            {t.anaOutbreakDist || "Infected Disease Distribution"}
           </h3>
           <div className="h-60 w-full flex items-center justify-center">
             {pieChartData.length > 0 ? (
@@ -289,7 +289,7 @@ export default function Analytics() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search..."
+                placeholder={t.anaSearchPlaceholder || "Search..."}
                 className="w-full sm:w-48 bg-[var(--bg-dark)] border border-[var(--card-border)] rounded-xl py-1.5 pl-3 pr-8 text-xs text-slate-300 focus:outline-none focus:border-[#22C55E] transition"
               />
               <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600" size={12} />
@@ -300,10 +300,10 @@ export default function Analytics() {
               onChange={(e) => setSeverityFilter(e.target.value)}
               className="bg-[var(--bg-dark)] border border-[var(--card-border)] rounded-xl py-1.5 px-3 text-xs text-slate-300 focus:outline-none focus:border-[#22C55E] transition"
             >
-              <option value="all">All Severity</option>
-              <option value="severe">Severe</option>
-              <option value="moderate">Moderate</option>
-              <option value="low">Low</option>
+              <option value="all">{t.anaFilterAll || "All Severity"}</option>
+              <option value="severe">{t.anaFilterSevere || "Severe"}</option>
+              <option value="moderate">{t.anaFilterModerate || "Moderate"}</option>
+              <option value="low">{t.anaFilterLow || "Low"}</option>
             </select>
           </div>
         </div>
@@ -315,7 +315,7 @@ export default function Analytics() {
               <span className="w-5 h-5 rounded-full border-2 border-[#22C55E] border-t-transparent animate-spin" />
             </div>
           ) : filteredHistory.length === 0 ? (
-            <p className="text-xs text-slate-500 italic py-10 text-center">No diagnostic history records matched.</p>
+            <p className="text-xs text-slate-500 italic py-10 text-center">{t.repNoRecords || "No diagnostic history records matched."}</p>
           ) : (
             <table className="w-full text-left text-xs border-collapse">
               <thead>

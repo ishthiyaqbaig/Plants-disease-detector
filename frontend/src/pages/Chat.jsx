@@ -248,7 +248,7 @@ export default function Chat() {
               className="w-full py-2.5 px-4 rounded-xl border border-dashed border-[#22C55E]/30 hover:border-[#22C55E] text-[#22C55E] hover:bg-[#22C55E]/5 text-xs font-bold flex items-center justify-center gap-2 transition duration-300"
             >
               <Plus size={14} />
-              New Chat Session
+              {t.chatNewSession || "New Chat Session"}
             </button>
 
             <div className="space-y-2 overflow-y-auto flex-grow pr-1 scrollbar">
@@ -294,14 +294,14 @@ export default function Chat() {
               </div>
               <div className="text-left">
                 <h3 className="text-xs font-bold text-slate-100">{t.chatTitle}</h3>
-                <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Agronomist Specialist Bot</p>
+                <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">{t.chatSubSpecialist || "Agronomist Specialist Bot"}</p>
               </div>
             </div>
 
             {/* Listening Wave indicator */}
             {listening && (
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-500/15 border border-red-500/20 animate-pulse">
-                <span className="text-[9px] font-bold text-red-400 uppercase">Listening</span>
+                <span className="text-[9px] font-bold text-red-400 uppercase">{t.chatListening || "Listening"}</span>
                 <div className="w-1 h-3 bg-red-400 rounded animate-bounce" style={{ animationDelay: '0ms' }} />
                 <div className="w-1 h-5 bg-red-400 rounded animate-bounce" style={{ animationDelay: '150ms' }} />
                 <div className="w-1 h-4 bg-red-400 rounded animate-bounce" style={{ animationDelay: '300ms' }} />

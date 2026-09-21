@@ -8,3 +8,5 @@ pillow
 google-generativeai
 python-dotenv
 deep-translator
+requests
+reportlab

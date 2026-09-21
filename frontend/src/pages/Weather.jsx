@@ -7,9 +7,10 @@ import API from "../services/api";
 
 export default function Weather() {
   const [lang, setLang] = useState(localStorage.getItem("agri_lang") || "en");
-  const [city, setCity] = useState("Hyderabad");
+  const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [detecting, setDetecting] = useState(false);
 
   useEffect(() => {
     const handleLangUpdate = () => {
@@ -21,10 +22,16 @@ export default function Weather() {
 
   const t = translations[lang] || translations.en;
 
-  const fetchWeatherData = async (targetCity) => {
+  const fetchWeatherData = async ({ targetCity, lat, lon } = {}) => {
     setLoading(true);
     try {
-      const res = await API.get(`/weather?city=${targetCity}`);
+      let queryStr = "";
+      if (lat !== undefined && lon !== undefined) {
+        queryStr = `lat=${lat}&lon=${lon}`;
+      } else if (targetCity && targetCity.trim()) {
+        queryStr = `city=${encodeURIComponent(targetCity.trim())}`;
+      }
+      const res = await API.get(`/weather${queryStr ? `?${queryStr}` : ""}`);
       setWeatherData(res.data);
     } catch (err) {
       console.error("Failed to load weather:", err);
@@ -32,9 +39,37 @@ export default function Weather() {
     setLoading(false);
   };
 
+  const detectLiveLocation = () => {
+    if (navigator.geolocation) {
+      setDetecting(true);
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          setCity("");
+          fetchWeatherData({ lat: latitude, lon: longitude });
+          setDetecting(false);
+        },
+        (err) => {
+          console.warn("Geolocation permission not granted, using local farm default:", err);
+          setDetecting(false);
+          fetchWeatherData();
+        },
+        { timeout: 7000 }
+      );
+    } else {
+      fetchWeatherData();
+    }
+  };
+
   useEffect(() => {
-    fetchWeatherData(city);
-  }, [city]);
+    // Automatically detect live location on initial mount
+    detectLiveLocation();
+  }, []);
+
+  const handleShortcutClick = (cityName) => {
+    setCity(cityName);
+    fetchWeatherData({ targetCity: cityName });
+  };
 
   // Regional shortcut capsules
   const regionShortcuts = [
@@ -50,23 +85,23 @@ export default function Weather() {
       {/* Header Panel */}
       <div className="space-y-1">
         <h2 className="text-3xl font-extrabold text-slate-100 tracking-tight leading-tight">
-          🌦️ Weather Advisory & Crop stress
+          🌦️ {t.weaTitle || "Weather Advisory & Crop Stress"}
         </h2>
         <p className="text-slate-400 text-sm">
-          Track real-time microclimate indicators, rain probabilities, and pathogen warnings to schedule crop sprayings.
+          {t.weaSub || "Track real-time microclimate indicators, rain probabilities, and pathogen warnings to schedule crop sprayings."}
         </p>
       </div>
 
       {/* Regional shortcuts selector */}
       <div className="space-y-3">
         <h4 className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
-          Quick Regional District Monitoring Shortcuts
+          {t.weaShortcutsTitle || "Quick Regional Monitoring Shortcuts"}
         </h4>
         <div className="flex flex-wrap gap-3">
           {regionShortcuts.map((region) => (
             <button
               key={region.name}
-              onClick={() => setCity(region.name)}
+              onClick={() => handleShortcutClick(region.name)}
               className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all border ${
                 city === region.name
                   ? "bg-[#22C55E]/10 border-[#22C55E]/20 text-[#22C55E]"
@@ -82,9 +117,13 @@ export default function Weather() {
       {/* Core weather card container */}
       <WeatherCard
         weatherData={weatherData}
-        loading={loading}
+        loading={loading || detecting}
         t={t}
-        onCitySearch={(newCity) => setCity(newCity)}
+        onCitySearch={(newCity) => {
+          setCity(newCity);
+          fetchWeatherData({ targetCity: newCity });
+        }}
+        onDetectLocation={detectLiveLocation}
       />
 
       {/* Weather Safety Notes */}
@@ -93,9 +132,11 @@ export default function Weather() {
           <AlertCircle size={18} />
         </div>
         <div className="space-y-0.5 text-left">
-          <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wide">Fungal Infection Risk Safety Note</h4>
+          <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wide">
+            {t.weaSafetyNoteTitle || "Fungal Infection Risk Safety Note"}
+          </h4>
           <p className="text-xs text-slate-400 leading-relaxed">
-            Spores of phytophthora and alternaria multiply when temperatures range between 20°C and 30°C accompanied by relative air humidity exceeding 80%. When such events occur, limit overhead watering and apply protective fungicides.
+            {t.weaSafetyNoteDesc || "Spores of phytophthora and alternaria multiply when temperatures range between 20°C and 30°C accompanied by relative air humidity exceeding 80%. When such events occur, limit overhead watering and apply protective fungicides."}
           </p>
         </div>
       </div>
@@ -104,3 +145,4 @@ export default function Weather() {
     </div>
   );
 }
+

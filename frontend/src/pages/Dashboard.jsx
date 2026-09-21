@@ -72,38 +72,38 @@ export default function Dashboard() {
 
   const capabilities = [
     {
-      title: "Disease Detection",
-      description: "Upload leaf photographs to execute computer vision diagnostic scanning.",
+      title: t.dashCapDetectTitle || "Disease Detection",
+      description: t.dashCapDetectDesc || "Upload leaf photographs to execute computer vision diagnostic scanning.",
       icon: Scan,
       link: "/detect"
     },
     {
-      title: "AI Recommendations",
-      description: "Ask the context-aware chatbot for organic treatments, prevention guidelines, and spray advice.",
+      title: t.dashCapAiTitle || "AI Recommendations",
+      description: t.dashCapAiDesc || "Ask the context-aware chatbot for organic treatments, prevention guidelines, and spray advice.",
       icon: Bot,
       link: "/chat"
     },
     {
-      title: "Weather Intelligence",
-      description: "Assess temperature thresholds, rainfall indicators, and fungal risk alarms.",
+      title: t.dashCapWeatherTitle || "Weather Intelligence",
+      description: t.dashCapWeatherDesc || "Assess temperature thresholds, rainfall indicators, and fungal risk alarms.",
       icon: CloudSun,
       link: "/weather"
     },
     {
-      title: "Real-Time Analysis",
-      description: "Inspect close-up leaf pathology symptoms side-by-side with bounding diagnostic targets.",
+      title: t.dashCapRealtimeTitle || "Real-Time Analysis",
+      description: t.dashCapRealtimeDesc || "Inspect close-up leaf pathology symptoms side-by-side with diagnostic insights.",
       icon: Zap,
       link: "/detect"
     },
     {
-      title: "PDF Reporting",
-      description: "Export structured summaries including severity, weather risk, and agro-advisories.",
+      title: t.dashCapPdfTitle || "PDF Reporting",
+      description: t.dashCapPdfDesc || "Export structured summaries including severity, weather risk, and agro-advisories.",
       icon: FileSpreadsheet,
       link: "/reports"
     },
     {
-      title: "Prediction History",
-      description: "Review previous pathology diagnoses and treatment advice to track disease occurrences.",
+      title: t.dashCapHistoryTitle || "Prediction History",
+      description: t.dashCapHistoryDesc || "Review previous pathology diagnoses and treatment advice to track disease occurrences.",
       icon: History,
       link: "/reports"
     }
@@ -122,13 +122,13 @@ export default function Dashboard() {
         
         <div className="relative z-10 space-y-2 max-w-xl text-left">
           <span className="px-2.5 py-1 rounded-full bg-[#22C55E]/20 text-[#22C55E] border border-[#22C55E]/30 text-[9px] font-bold uppercase tracking-wider">
-            Smart Agro SaaS Platform
+            {t.dashSmartAgro || "Smart Agro SaaS Platform"}
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Welcome to {t.title} Dashboard
+            {t.dashWelcome || "Welcome to"} {t.title} {t.navDashboard || "Dashboard"}
           </h2>
           <p className="text-slate-200 text-xs leading-relaxed filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Real-time crop path diagnostics powered by YOLOv8 deep vision weights and context-aware Gemini agronomy models.
+            {t.dashHeroDesc || "Real-time crop pathology diagnostics powered by YOLOv8 deep vision weights and context-aware Gemini agronomy models."}
           </p>
         </div>
       </div>
@@ -136,39 +136,39 @@ export default function Dashboard() {
       {/* Top Metrics Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
-          title="Total Scans"
+          title={t.dashTotalScans || "Total Scans"}
           value={totalScans}
           icon={Scan}
           color="blue"
-          change="All-time"
+          change={t.dashAllTime || "All-time"}
         />
         <StatCard
-          title="Successful Detections"
+          title={t.dashSuccessfulDetections || "Successful Detections"}
           value={successDetections}
           icon={ShieldCheck}
           color="green"
-          change="Confidence >50%"
+          change={t.dashConfOver50 || "Confidence >50%"}
         />
         <StatCard
-          title="Average Confidence"
+          title={t.dashAvgConf || "Average Confidence"}
           value={`${avgConfidence}%`}
           icon={CheckCircle2}
           color="purple"
-          change="YOLOv8 target accuracy"
+          change={t.dashAcrossPred || "Across predictions"}
         />
         <StatCard
-          title="Last Analysis"
-          value={lastAnalysis}
+          title={t.dashLastAnalyzed || "Last Analysis"}
+          value={lastAnalysis === "No Scans" ? (t.dashNoScans || "No Scans Yet") : lastAnalysis}
           icon={AlertTriangle}
           color="yellow"
-          change="Latest result"
+          change={t.dashRealTime || "Real-time"}
         />
       </div>
 
       {/* Capability Grid */}
       <div className="space-y-4">
         <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-          Platform Capabilities & Diagnostic Routines
+          {t.dashQuickActions || "Platform Capabilities & Diagnostic Routines"}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {capabilities.map((cap, idx) => (
@@ -191,10 +191,10 @@ export default function Dashboard() {
         <div className="space-y-1 text-left">
           <h4 className="text-xs font-bold text-[var(--text-primary)] uppercase tracking-wide flex items-center gap-1.5">
             <TrendingUp size={12} className="text-[#22C55E]" />
-            AI Farming Advisory Tip
+            {t.featChatTitle || "AI Farming Advisory"}
           </h4>
           <p className="text-xs text-[var(--text-secondary)] leading-relaxed max-w-3xl">
-            High humidity levels above 75% paired with moderate heat create favorable conditions for Alternaria early blight and Phytophthora late blight pathogens. Spray organic protectants early.
+            {t.weaSafetyNoteDesc || "High humidity levels above 75% paired with moderate heat create favorable conditions for Alternaria early blight and Phytophthora late blight pathogens. Spray organic protectants early."}
           </p>
         </div>
       </div>
