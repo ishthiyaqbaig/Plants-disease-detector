@@ -87,8 +87,8 @@ Follow these steps to launch the backend and frontend services locally on your m
 4. **Set up Environment Variables**:
    Create a `.env` file in the `backend/` folder:
    ```env
-   GEMINI_API_KEY=AIzaSyDjpF5e1CRGgpa49HH-_f4pCcYSYbV_8SM
-   WEATHER_API_KEY=f7d346d8975fc8c45585dec686e843b9
+   GEMINI_API_KEY=YOUR GEMINI API KEY VALUE
+   WEATHER_API_KEY=YOUR WEATHER API KEY VALUE
    ```
 
    > [!TIP]
@@ -389,10 +389,10 @@ graph LR
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `uvicorn app:app --host 0.0.0.0 --port $PORT`
 4. Add your **Environment Variables** in the Render Dashboard:
-   - `GEMINI_API_KEY` = `AIzaSyDjpF5e1CRGgpa49HH-_f4pCcYSYbV_8SM`
-   - `WEATHER_API_KEY` = `f7d346d8975fc8c45585dec686e843b9`
+   - `GEMINI_API_KEY` = `YOUR GEMINI API KEY VALUE`
+   - `WEATHER_API_KEY` = `YOUR WEATHER API KEY VALUE`
 5. Click **Create Web Service**.
-6. Once deployed, copy your backend URL (e.g., `https://ish-ai-doctor-backend.onrender.com`).
+6. Once deployed, copy your backend URL (e.g., `https://detection-backend.onrender.com`).
 
 ---
 
@@ -406,9 +406,9 @@ graph LR
    - **Output Directory**: `dist`
 4. Expand **Environment Variables** and add:
    - **Key**: `VITE_API_URL`
-   - **Value**: `https://ish-ai-doctor-backend.onrender.com` *(Paste your Render backend URL)*
+   - **Value**: `https://detection-backend.onrender.com` *(Paste your Render backend URL)*
 5. Click **Deploy**.
-6. In ~60 seconds, Vercel gives you your live production domain (e.g., `https://ish-ai-doctor.vercel.app`)!
+6. In ~60 seconds, Vercel gives you your live production domain (e.g., `https://detector.vercel.app`)!
 
 ---
 
